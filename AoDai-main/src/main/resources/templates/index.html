@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="vi" th:fragment="layout" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="revisit-after" content="1 day"/>
+    <meta name="HandheldFriendly" content="true">
+    <link rel="shortcut icon" href="//theme.hstatic.net/200000066564/1001358455/14/favicon.png?v=118"
+          type="image/png"/>
+    <title>
+        Thời trang thiết kế &ndash; LaLin
+    </title>
+    <link rel="canonical" href="https://lalin.vn/"/>
+    <link rel="alternate" href="https://lalin.vn/" hreflang="vi-vn"/>
+    <meta name="keywords" content="LaLin">
+    <meta name="robots" content="index,follow,noodp">
+    <link rel="preload" href="//theme.hstatic.net/200000066564/1001358455/14/slideshow_1.jpg?v=118" as="image"
+          media="(min-width: 768px)">
+    <link rel="preload" href="//theme.hstatic.net/200000066564/1001358455/14/slideshow_2_mobile.jpg?v=118" as="image"
+          media="(max-width: 767px)">
+
+
+    <link rel="preload" as="style" href="//theme.hstatic.net/200000066564/1001358455/14/styles.css?v=118">
+    <link rel="preload" href="//theme.hstatic.net/200000066564/1001358455/14/logo.png?v=118" as="image">
+    <link rel="preconnect" href="Saira+Condensed:wght@200;300;400;500;600&display=swap">
+    <link rel="preload" href="Saira+Condensed:wght@200;300;400;500;600&display=swap" as="style">
+
+    <link rel="stylesheet" th:href="@{/css/lalin.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@200;300;400;500;600&display=swap"
+          rel="stylesheet">
+    <style>
+
+    </style>
+    <link href='//theme.hstatic.net/200000066564/1001358455/14/slick.css?v=118' rel='stylesheet' type='text/css'
+          media='all'/>
+    <link href='//theme.hstatic.net/200000066564/1001358455/14/slick-theme.css?v=118' rel='stylesheet' type='text/css'
+          media='all'/>
+
+    <link href="//theme.hstatic.net/200000066564/1001358455/14/styles.css?v=118" rel="preload stylesheet" as="style"
+          type="text/css">
+
+    <link href='//theme.hstatic.net/200000066564/1001358455/14/mixmatch.css?v=118' rel='stylesheet' type='text/css'
+          media='all'/>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.8.36/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.8.36/plugin/customParseFormat.js"></script>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Thời trang thiết kế"/>
+    <meta property="og:image" content="http://theme.hstatic.net/200000066564/1001358455/14/share_fb_home.png?v=118"/>
+    <meta property="og:image:secure_url"
+          content="https://theme.hstatic.net/200000066564/1001358455/14/share_fb_home.png?v=118"/>
+    <meta property="og:image:alt" content="Thời trang thiết kế"/>
+    <meta property="og:url" content="https://lalin.vn/"/>
+    <meta property="og:site_name" content="LaLin"/>
+    <meta name="description" content=""/>
+    <meta name="google-site-verification" content="nyGhqUtDSCkVQTa8obOQbAiPvqlnzMqVbbkaqqLxQYU"/>
+    <script defer src='https://stats.hstatic.net/beacon.min.js' hrv-beacon-t='200000066564'></script>
+
+</head>
+
+
+<body>
+<th:block th:replace="layout/user-layout :: layout">
+    <th:block th:fragment="pageContent">
+        <h1 class="hidden entry-title">LaLin</h1>
+
+        <div id="home-slider">
+
+            <div id="homepage_slider" class="">
+                <div class="item ">
+                    <a th:href="@{/product/list}" title="" aria-label="Banner 1">
+                        <picture>
+                            <source media="(max-width: 480px)"
+                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_1_mobile_large.jpg?v=118">
+                            <source media="(min-width: 481px) and (max-width: 767px)"
+                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_1_mobile.jpg?v=118">
+                            <source media="(min-width: 768px)"
+                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_1.jpg?v=118">
+                            <img src="//theme.hstatic.net/200000066564/1001358455/14/slideshow_1_mobile.jpg?v=118"
+                                 alt="">
+                        </picture>
+                    </a>
+                </div>
+
+                <div class="item ">
+                    <a th:href="@{/product/list}" title="" aria-label="Banner 2">
+                        <picture>
+                            <source class="" media="(max-width: 480px)"
+                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_2_mobile.jpg?v=118">
+                            <source class="" media="(min-width: 481px) and (max-width: 767px)"
+                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_2_mobile.jpg?v=118">
+                            <source class="" media="(min-width: 768px)"
+                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_2.jpg?v=118">
+                            <img class=""
+                                 src="//theme.hstatic.net/200000066564/1001358455/14/slideshow_2_mobile.jpg?v=118"
+                                 alt="">
+                        </picture>
+                    </a>
+                </div>
+                <div class="item ">
+                    <a th:href="@{/product/list}" title="" aria-label="Banner 3">
+                        <picture>
+                            <source class="" media="(max-width: 480px)"
+                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_3_mobile.jpg?v=118">
+                            <source class="" media="(min-width: 481px) and (max-width: 767px)"
+                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_3_mobile.jpg?v=118">
+                            <source class="" media="(min-width: 768px)"
+                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_3.jpg?v=118">
+                            <img class=""
+                                 src="//theme.hstatic.net/200000066564/1001358455/14/slideshow_3_mobile.jpg?v=118"
+                                 alt="">
+                        </picture>
+                    </a>
+                </div>
+
+                <div class="item ">
+                    <a href="https://lalin.vn/collections/chuong-trinh-thang-5-2025" title="" aria-label="Banner 4">
+                        <picture>
+                            <source class="" media="(max-width: 480px)"
+                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_4_mobile.jpg?v=118">
+                            <source class="" media="(min-width: 481px) and (max-width: 767px)"
+                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_4_mobile.jpg?v=118">
+                            <source class="" media="(min-width: 768px)"
+                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_4.jpg?v=118">
+                            <img class=""
+                                 src="//theme.hstatic.net/200000066564/1001358455/14/slideshow_4_mobile.jpg?v=118"
+                                 alt="">
+                        </picture>
+                    </a>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        <div class="section-index home-product">
+            <div class="container-fluid">
+                <div class="section-home__head">
+                    <h3 class="home__subtitle"></h3>
+                    <h2 class="home__title">
+                        SẢN PHẨM MỚI
+                    </h2>
+                </div>
+            </div>
+            <div class="gallery-container">
+                <div class="section-home__content">
+                    <div class="section-home__content">
+                        <div class="home-product__list owl-carousel owl-theme style-nav row">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pro-loop"
+                                 th:each="product : ${products}">
+                                <div class="product-block product-resize"
+                                     th:id="'collection_loop_' + ${product.id}">
+                                    <div class="product-img">
+                                        <a th:href="@{/product/{id}(id=${product.id})}"
+                                           th:title="${product.product_Name}" class="image-resize ratiobox">
+                                            <picture>
+                                                <source media="(max-width: 480px)"
+                                                        th:data-srcset="@{${product.avatar}}"
+                                                />
+                                                <source media="(min-width: 481px) and (max-width: 767px)"
+                                                        th:data-srcset="@{${product.avatar}}"
+                                                />
+                                                <source media="(min-width: 768px)"
+                                                        th:data-srcset="@{${product.avatar}}"
+                                                />
+                                                <img th:src="@{${product.avatar}}"
+                                                     class="lazyload img-loop"
+                                                />
+                                            </picture>
+                                        </a>
+                                    </div>
+                                    <div class="product-detail clearfix">
+                                        <div class="box-pro-detail">
+                                            <div class="box-pro-title">
+                                                <h3 class="pro-name">
+                                                    <a th:href="@{/product/{id}(id=${product.id})}"
+                                                       th:title="${product.product_Name}"><span
+                                                            th:text="${product.product_Name}"></span></a>
+                                                </h3>
+                                            </div>
+                                            <div class="box-pro-prices">
+                                                <p class="pro-price">
+                                                    <span th:text="${product.price} + '₫'"></span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-index home-featured">
+            <div class="container-fluid">
+                <div class="featured-home__list">
+
+                    <div class="featured-home__line">
+                        <div class="col-lg-6 col-md-12 col-xs-12">
+                            <div class="featured-home__detail">
+                                <h2 class="home__title">
+                                    Ý HIÊN
+                                </h2>
+                                <div class="home__des">
+                                    "Ý Hiên" thay cho lời mời gọi dịu dàng của Lalin, dẫn lối giai nhân tìm về sự an
+                                    yên, buông lơi những bộn bề, để tâm hồn được thả lỏng và tự do toả sáng theo
+                                    cách thuần khiết nhất, như đóa hoa thanh khiết âm thầm khoe sắc dưới nắng vàng
+                                    hạ sang...
+                                </div>
+                                <div class="featured-home__btn">
+                                    <a th:href="@{/product/list}"
+                                       class="btn-shop btn-shop-outline-">Xem thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-xs-12">
+                            <div class="featured-home__image ratiobox">
+                                <a href="https://lalin.vn/blogs/review-san-pham/y-hien">
+                                    <img class="lazyload" data-sizes="auto"
+                                         data-src="//theme.hstatic.net/200000066564/1001358455/14/home-featured1.jpg?v=118"
+                                         data-lowsrc="//theme.hstatic.net/200000066564/1001358455/14/home-featured1.jpg?v=118"
+                                         src="https://theme.hstatic.net/200000066564/1001358455/14/home-featured1.jpg?v=118"
+                                         alt="Ý HIÊN">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-home__line">
+                        <div class="col-lg-6 col-md-12 col-xs-12">
+                            <div class="featured-home__detail">
+                                <h2 class="home__title">
+                                    NHƯỢC CẨM PHÙ HOA
+                                </h2>
+                                <div class="home__des">
+                                    Tựa lời thì thầm của xuân thì, Nhược Cẩm Phù Hoa là khúc hoà ca dịu nhẹ được
+                                    viết nên từ dáng tơ lụa là, nơi vẻ đẹp tính nữ được đánh thức bằng những đường
+                                    nét mềm mại và nghệ thuật thủ công tinh tế của Lalin. Lấy cảm hứng từ dáng hình
+                                    của loài hoa Lan bung nở, Lalin tái hiện hình ảnh người con gái nền nã, kiêu sa
+                                    mà không phô trương trong các thiết kế cổ yếm mang đậm dư vị truyền thống. Mỗi
+                                    thiết kế là sự giao hoà giữa chất liệu, kỹ thuật và cảm xúc, vẽ nên vẻ đẹp an
+                                    yên, dịu dàng mà khó quên – như thể chạm vào cánh cửa thời gian vừa hé mở giữa
+                                    sắc xuân ngập tràn...
+                                </div>
+                                <div class="featured-home__btn">
+                                    <a th:href="@{/product/list}"
+                                       class="btn-shop btn-shop-outline-">Xem thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-xs-12">
+                            <div class="featured-home__image ratiobox">
+                                <a href="https://lalin.vn/blogs/xu-huong-thoi-trang/nhuoc-cam-phu-hoa">
+                                    <img class="lazyload" data-sizes="auto"
+                                         data-src="//theme.hstatic.net/200000066564/1001358455/14/home-featured2.jpg?v=118"
+                                         data-lowsrc="//theme.hstatic.net/200000066564/1001358455/14/home-featured2.jpg?v=118"
+                                         src="https://theme.hstatic.net/200000066564/1001358455/14/home-featured2.jpg?v=118"
+                                         alt="NHƯỢC CẨM PHÙ HOA">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="section-index home-products-tab">
+            <div class="container-fluid">
+                <div class="htp-tablinks">
+
+                    <a href="javascript:void(0)" class="htp-tablink mix-match active" data-id="htp-tab-1">Nàng thơ
+                        Lalin</a>
+
+
+                </div>
+                <div class="htp-tabcontents">
+
+                    <div class="htp-tabcontent active" data-id="htp-tab-1">
+                        <div class="dat-mixmatch__swiper swiper-container dat-mixmatch">
+                            <div class="swiper-wrapper">
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                        <p class="shop-now text-center">
+                            <a class="btn-loadmore-mixmatch" th:href="@{/product/list}">Xem thêm <i
+                                    class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                        </p>
+                    </div>
+
+
+                    <div class="htp-tabcontent" data-id="htp-tab-3" data-reg="false">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </th:block>
+</th:block>
+
+<script th:src="@{/js/initialization.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/checkout.js}"></script>
+<script th:src="@{/js/toast-message.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

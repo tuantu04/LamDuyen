@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi" th:fragment="layout" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lam Duyen</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* General page styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dashboard-content {
+            padding: 30px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* Titlebar */
+        #titlebar {
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        #titlebar h2 {
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        #breadcrumbs {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        #breadcrumbs a {
+            color: #5392fa;
+            text-decoration: none;
+        }
+
+        #breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        /* Invoices section */
+        .dashboard-list-box {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .dashboard-list-box h4 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .dashboard-list-box ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dashboard-list-box li {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .dashboard-list-box li:last-child {
+            border-bottom: none;
+        }
+
+        .dashboard-list-box .list-box-icon {
+            font-size: 18px;
+            color: #5392fa;
+            margin-right: 15px;
+        }
+
+        .dashboard-list-box strong {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .dashboard-list-box span {
+            font-size: 13px;
+            color: rgb(207, 32, 97);
+        }
+
+        .dashboard-list-box li .unpaid {
+            color: #5392fa;
+            font-size: 14px;
+        }
+
+        .dashboard-list-box li .paid {
+            color: #28a745;
+            font-size: 14px;
+        }
+
+        .dashboard-list-box .buttons-to-right {
+            margin-left: auto;
+        }
+
+        .dashboard-list-box .button {
+            padding: 8px 15px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            color: #333;
+            border: 1px solid #ddd;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .dashboard-list-box .button:hover {
+            background-color: #5392fa;
+            color: white;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .dashboard-content {
+                width: 100%;
+                margin: 0 20px;
+            }
+
+            #titlebar h2 {
+                font-size: 20px;
+            }
+
+            .dashboard-list-box li {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px;
+            }
+
+            .dashboard-list-box .buttons-to-right {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .dashboard-list-box .button {
+                padding: 10px 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<th:block th:replace="layout/user-layout :: layout">
+    <th:block th:fragment="pageContent">
+        <div class="dashboard-content" style="width: 80%; margin-left: 0px; margin: 0 100px;">
+
+            <!-- Titlebar -->
+            <div id="titlebar">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>My History</h2>
+                        <!-- Breadcrumbs -->
+                        <nav id="breadcrumbs">
+                            <ul>
+                                <li><a th:href="@{/home}">Home</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Invoices -->
+                <div style="width: 100%;">
+                    <div class="dashboard-list-box invoices with-icons margin-top-20">
+                        <h4>Invoices</h4>
+                        <ul>
+                            <th:block th:each="y : ${listOrder}">
+                                <li><i class="list-box-icon sl sl-icon-doc"></i> <strong
+                                        th:text="${y.order_Item[0].product.product_Name}"></strong> <span th:if="${#lists.size(y.order_Item) >1}"
+                                                                                                          style="margin-left: 20px; color: rgb(207, 32, 97)"
+                                                                                                          th:text="' and ' + ${#lists.size(y.order_Item)- 1} + ' more ...'"></span>
+                                    <ul>
+                                        <li class="unpaid" style="color: #5392fa;"
+                                            th:if="${y.payment_Method=='Payment on delivery'}"
+                                            th:text="${y.payment_Method}"></li>
+                                        <li class="paid"
+                                            th:if="${y.payment_Method=='Payment with VNPay'}"
+                                            th:text="${y.payment_Method}">Paid</li>
+                                        <li th:text="'Order: #' + ${y.id}"></li>
+                                        <li
+                                                th:text="'Date: ' + ${#dates.format(y.booking_Date, 'dd-MM-yyyy')}"></li>
+                                    </ul>
+                                    <div class="buttons-to-right">
+                                        <a th:href="@{/client/order/invoice/{id}(id=${y.id})}" class="button gray">View
+                                            Invoice</a>
+                                    </div></li>
+                            </th:block>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </th:block>
+</th:block>
+
+<script th:src="@{/js/initialization.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/checkout.js}"></script>
+<script th:src="@{/js/toast-message.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

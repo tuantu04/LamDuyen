@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi" th:fragment="layout" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="revisit-after" content="1 day"/>
+    <meta name="HandheldFriendly" content="true">
+    <link rel="shortcut icon" href="//theme.hstatic.net/200000066564/1001358455/14/favicon.png?v=118"
+          type="image/png"/>
+    <title>
+        Thời trang thiết kế &ndash; LaLin
+    </title>
+    <link rel="canonical" href="https://lalin.vn/"/>
+    <link rel="alternate" href="https://lalin.vn/" hreflang="vi-vn"/>
+    <meta name="keywords" content="LaLin">
+    <meta name="robots" content="index,follow,noodp">
+    <link rel="preload" href="//theme.hstatic.net/200000066564/1001358455/14/slideshow_1.jpg?v=118" as="image"
+          media="(min-width: 768px)">
+    <link rel="preload" href="//theme.hstatic.net/200000066564/1001358455/14/slideshow_2_mobile.jpg?v=118" as="image"
+          media="(max-width: 767px)">
+
+
+    <link rel="preload" as="style" href="//theme.hstatic.net/200000066564/1001358455/14/styles.css?v=118">
+    <link rel="preload" href="//theme.hstatic.net/200000066564/1001358455/14/logo.png?v=118" as="image">
+    <link rel="preconnect" href="Saira+Condensed:wght@200;300;400;500;600&display=swap">
+    <link rel="preload" href="Saira+Condensed:wght@200;300;400;500;600&display=swap" as="style">
+
+    <link rel="stylesheet" th:href="@{/css/lalin.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@200;300;400;500;600&display=swap"
+          rel="stylesheet">
+    <style>
+
+    </style>
+    <link href='//theme.hstatic.net/200000066564/1001358455/14/slick.css?v=118' rel='stylesheet' type='text/css'
+          media='all'/>
+    <link href='//theme.hstatic.net/200000066564/1001358455/14/slick-theme.css?v=118' rel='stylesheet' type='text/css'
+          media='all'/>
+
+    <link href="//theme.hstatic.net/200000066564/1001358455/14/styles.css?v=118" rel="preload stylesheet" as="style"
+          type="text/css">
+
+    <link href='//theme.hstatic.net/200000066564/1001358455/14/mixmatch.css?v=118' rel='stylesheet' type='text/css'
+          media='all'/>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.8.36/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.8.36/plugin/customParseFormat.js"></script>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Thời trang thiết kế"/>
+    <meta property="og:image" content="http://theme.hstatic.net/200000066564/1001358455/14/share_fb_home.png?v=118"/>
+    <meta property="og:image:secure_url"
+          content="https://theme.hstatic.net/200000066564/1001358455/14/share_fb_home.png?v=118"/>
+    <meta property="og:image:alt" content="Thời trang thiết kế"/>
+    <meta property="og:url" content="https://lalin.vn/"/>
+    <meta property="og:site_name" content="LaLin"/>
+    <meta name="description" content=""/>
+    <meta name="google-site-verification" content="nyGhqUtDSCkVQTa8obOQbAiPvqlnzMqVbbkaqqLxQYU"/>
+    <script defer src='https://stats.hstatic.net/beacon.min.js' hrv-beacon-t='200000066564'></script>
+
+</head>
+<body id="lama-theme" class="index">
+
+<div class="main-body  main-index ">
+    <div th:replace="fragments/navbar-user :: navbar"></div>
+    <main class="mainContent-theme">
+        <div th:replace="fragments/top-user :: top"></div>
+
+        <th:block th:insert="~{::pageContent}"></th:block>
+
+        <div th:replace="fragments/footer-user :: footer"></div>
+    </main>
+    <div class="search-nav">
+        <div class="container-fluid">
+            <div class="search-nav__wrapper">
+                <div class="search-box wpo-wrapper-search">
+                    <form action="/search" class="searchform searchform-categoris ultimate-search">
+                        <div class="wpo-search-inner">
+                            <input type="hidden" name="type" value="product"/>
+                            <input required id="inputSearchAuto" name="q" maxlength="40" autocomplete="off"
+                                   class="searchinput input-search search-input" type="text" size="20"
+                                   placeholder="Tìm kiếm sản phẩm..." aria-label="Search">
+                        </div>
+                        <a href="javascript:void(0)" class="close-search"><img
+                                src="//theme.hstatic.net/200000066564/1001358455/14/ic_close.png?v=118"/></a>
+                    </form>
+                    <div id="ajaxSearchResults" class="smart-search-wrapper ajaxSearchResults"
+                         style="display: none">
+                        <div class="resultsContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="//hstatic.net/0/0/global/option_selection.js"></script>
+<script src="//hstatic.net/0/0/global/api.jquery.js"></script>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src='//theme.hstatic.net/200000066564/1001358455/14/bc-app-flashsale.js?v=118'
+        type='text/javascript'></script>
+<script src="//theme.hstatic.net/200000066564/1001358455/14/scripts.js?v=118"></script>
+
+
+<link href='//theme.hstatic.net/200000066564/1001358455/14/bluecore-gift.css?v=118' rel='stylesheet' type='text/css'
+      media='all'/>
+<link rel='stylesheet' media="screen"
+      href='https://facebookinbox-omni-onapp.haravan.com/facebookinbox/static/stylesheets/box-style.css?v=1586424991330'/>
+</body>
+
+</html>

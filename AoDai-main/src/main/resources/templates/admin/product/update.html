@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa Sản Phẩm</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<th:block th:replace="layout/admin-layout :: layout">
+    <th:block th:fragment="pageContent">
+        <div class="container mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Sửa Sản Phẩm</h4>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/admin/product/update}" method="post" enctype="multipart/form-data"
+                          th:object="${product}">
+
+                        <!-- Hidden ID -->
+                        <input type="hidden" th:field="*{id}"/>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Tên sản phẩm</label>
+                                    <input type="text" class="form-control" th:field="*{product_Name}" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label>Giá</label>
+                                    <input type="number" class="form-control" th:field="*{price}" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label>Số lượng</label>
+                                    <input type="number" class="form-control" th:field="*{quantity}" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Danh mục</label>
+                                    <select class="form-control" th:field="*{categoryId}">
+                                        <option th:each="cat : ${categories}" th:value="${cat.id}"
+                                                th:text="${cat.name}"
+                                                th:selected="${cat.id == product.categoryId}">
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label>Mô tả</label>
+                                    <textarea class="form-control" th:field="*{description}" rows="4"></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label>Hình ảnh mới</label>
+                                    <input type="file" name="img" accept="image/*" class="form-control">
+
+                                    <div class="mt-2" th:if="${product.avatar}">
+                                        <p>Ảnh hiện tại:</p>
+                                        <img th:src="@{${product.avatar}}" style="max-width: 150px;" alt="Ảnh cũ">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Trạng thái</label>
+                                    <select class="form-select" th:field="*{isActive}">
+                                        <option value="1" th:selected="${product.isActive == 1}">Hoạt động</option>
+                                        <option value="0" th:selected="${product.isActive == 0}">Không hoạt động</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end">
+                            <a th:href="@{/admin/product}" class="btn btn-outline-secondary me-2">Hủy</a>
+                            <button type="submit" class="btn btn-primary">Cập nhật</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </th:block>
+</th:block>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<title>Fresh Life Jewelry</title>
+	<style>
+		/* Cấu trúc chung của hóa đơn */
+		#invoice {
+			width: 80%;
+			margin: 0 auto;
+			font-family: Arial, sans-serif;
+			color: #333;
+		}
+
+		/* Logo */
+		#logo img {
+			width: 150px;
+		}
+
+		/* Header */
+		#details {
+			font-size: 16px;
+			line-height: 1.6;
+		}
+
+		/* Table trong hóa đơn */
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 20px;
+			border: 1px solid #ddd;
+		}
+
+		table th, table td {
+			padding: 10px;
+			text-align: left;
+		}
+
+		table th {
+			background-color: #f2f2f2;
+		}
+
+		/* Totals */
+		#totals {
+			width: 100%;
+			margin-top: 20px;
+		}
+
+		#totals th {
+			text-align: left;
+			font-weight: bold;
+		}
+
+		#totals td {
+			text-align: right;
+		}
+
+		/* Footer */
+		#footer {
+			margin-top: 30px;
+			list-style: none;
+			padding: 0;
+		}
+
+		#footer li {
+			margin-bottom: 5px;
+			font-size: 14px;
+		}
+
+		/* Nút in hóa đơn */
+		.print-button {
+			background-color: #007bff;
+			color: white;
+			padding: 10px 20px;
+			margin-right: 10px;
+			border-radius: 5px;
+			text-decoration: none;
+			font-weight: bold;
+		}
+
+		.print-button:hover {
+			background-color: #0056b3;
+		}
+
+		/* Định dạng cho các phần tử in nghiêng */
+		i {
+			font-style: italic;
+		}
+
+		/* Định dạng cho các phần tử in đậm */
+		strong {
+			font-weight: bold;
+		}
+
+		/* Margin chung */
+		.margin-top-20 {
+			margin-top: 20px;
+		}
+
+		.margin-bottom-5 {
+			margin-bottom: 5px;
+		}
+
+		/* Định dạng khi in hóa đơn */
+		@media print {
+			body {
+				font-family: 'Arial', sans-serif;
+			}
+
+			.print-button {
+				display: none; /* Ẩn nút in khi in */
+			}
+
+			#invoice {
+				width: 100%;
+				margin: 0;
+			}
+		}
+
+	</style>
+</head>
+
+<body>
+
+<div style="display: flex;">
+	<a th:if="${invoiceView == null}" th:href="@{/home}" class="print-button">Tiếp tục mua sắm</a>
+	<a th:if="${invoiceView != null}" th:href="@{/client/order/myhistory}" class="print-button">Quay lại lịch sử mua hàng</a>
+</div>
+
+<!-- Hóa đơn -->
+<div id="invoice">
+
+	<!-- Header -->
+	<div class="row">
+		<div class="col-md-6">
+			<div id="logo">
+				<img src="img/logo.png" alt="">
+			</div>
+		</div>
+		<div class="col-md-6">
+
+			<p id="details">
+				<strong>Mã đơn hàng: </strong><i th:text="'#' + ${order.id}"></i><br>
+				<strong>Ngày phát hành: </strong><i th:text="${#dates.format(order.booking_Date, 'dd-MM-yyyy')}"></i><br>
+				Hạn thanh toán: 7 ngày kể từ ngày phát hành
+			</p>
+		</div>
+	</div>
+
+	<!-- Thông tin khách hàng và nhà cung cấp -->
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Hóa đơn</h2>
+		</div>
+
+		<div class="col-md-6">
+			<strong class="margin-bottom-5">Nhà cung cấp</strong>
+			<p>
+				Lalin <br> 96/180 Nguyễn Lương Bằng - Quang Trung <br> Q. Đống Đa - Hà Nội <br>
+			</p>
+		</div>
+
+		<div class="col-md-6">
+			<strong class="margin-bottom-5">Khách hàng</strong>
+			<p>
+				<i th:text="${order.fullname}"></i> <br> <i th:text="'SĐT: ' + ${order.phone}"></i> <br> <i
+					th:text="'Email: ' + ${order.email}"></i> <br>
+			</p>
+		</div>
+	</div>
+
+	<!-- Chi tiết hóa đơn -->
+	<div class="row">
+		<div class="col-md-12">
+			<table class="margin-top-20">
+				<tr>
+					<th>Mô tả</th>
+					<th>Số lượng</th>
+					<th>Size</th>
+					<th>Tổng cộng</th>
+				</tr>
+				<th:block th:each="y: ${listOrder_Item}">
+					<tr>
+						<td th:text="${y.product.product_Name}"></td>
+						<td th:text="${y.count}"></td>
+						<td th:text="${y.size.sizeName}"></td>
+						<td th:text="${#numbers.formatDecimal(y.product.price * y.count, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"></td>
+					</tr>
+				</th:block>
+			</table>
+			<p>
+				<strong class="margin-bottom-5">Địa chỉ giao hàng: </strong>
+				<i th:text="${order.address}"></i><br>
+				<strong class="margin-bottom-5">Phương thức thanh toán: </strong>
+				<i th:text="${order.payment_Method}"></i>
+			</p>
+		</div>
+
+		<div class="col-md-4 col-md-offset-8">
+			<table id="totals">
+				<tr>
+					<th>Tổng cộng</th>
+					<th><span th:text="${#numbers.formatDecimal(order.total, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"></span></th>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<div class="row">
+		<div class="col-md-12">
+			<ul id="footer">
+				<li><span>https://www.facebook.com/Lalin</span></li>
+				<li>Lalin@gmail.com</li>
+				<li>0912 987 319</li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+</body>
+
+</html>

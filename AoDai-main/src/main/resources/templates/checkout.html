@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="vi" th:fragment="layout" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lam Duyen</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Reset default margin/padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+
+        /* Page container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Checkout section */
+        .checkout {
+            padding: 40px 0;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Title */
+        .checkout__title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #5c9ded;
+            margin-bottom: 20px;
+        }
+
+        /* Checkout Form */
+        .checkout__form .checkout__input {
+            margin-bottom: 20px;
+        }
+
+        /* Input field styling */
+        .input-text {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #f8f8f8;
+            transition: all 0.3s ease;
+        }
+
+        /* Focus effect for inputs */
+        .input-text:focus {
+            border-color: #5c9ded;
+            outline: none;
+            box-shadow: 0 0 10px rgba(92, 157, 237, 0.2);
+        }
+
+        /* Row for phone/email input */
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Order summary (right side) */
+        .checkout__order {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Order details title */
+        .order__title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* Products list */
+        .checkout__total__products li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        /* Total price */
+        .checkout__total__all li {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Checkbox styling */
+        .checkout__input__checkbox {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .checkout__input__checkbox input {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        /* Submit button */
+        .site-btn {
+            background-color: #5c9ded;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover effect for submit button */
+        .site-btn:hover {
+            background-color: #4a8fd1;
+        }
+
+        /* Error message styling */
+        #errorMessage {
+            font-size: 16px;
+            color: red;
+        }
+
+        /* Responsive layout for mobile */
+        @media (max-width: 992px) {
+            .checkout__form .row {
+                flex-direction: column;
+            }
+
+            .checkout__order {
+                margin-top: 30px;
+            }
+
+            .checkout__form .checkout__input {
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .checkout__form {
+                padding: 20px;
+            }
+
+            .checkout__title {
+                font-size: 22px;
+            }
+
+            .checkout__order {
+                margin-top: 20px;
+            }
+        }
+
+        /* Container cho layout của checkout */
+        .checkout__form {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        /* Phần thông tin giao hàng bên trái */
+        .checkout__form .col-lg-6:first-child {
+            flex: 1;
+        }
+
+        /* Phần đơn hàng bên phải */
+        .checkout__form .col-lg-6:last-child {
+            flex: 1;
+            max-width: 400px; /* Giới hạn độ rộng phần đơn hàng */
+        }
+
+        /* Style cho hình ảnh sản phẩm */
+        .checkout__order__products img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        /* Các sản phẩm trong đơn hàng */
+        .checkout__total__products li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        /* Cấu hình các cột nhỏ khi màn hình thu nhỏ */
+        @media (max-width: 992px) {
+            .checkout__form {
+                flex-direction: column;
+            }
+
+            .checkout__form .col-lg-6 {
+                max-width: 100%;
+            }
+        }
+        /* Style cho radio button (kiểu giả checkmark) */
+        .checkout__input__checkbox input[type="radio"] {
+            display: none; /* Ẩn radio button thực tế */
+        }
+
+        .checkout__input__checkbox input[type="radio"] + .checkmark {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkout__input__checkbox input[type="radio"]:checked + .checkmark {
+            border-color: #5c9ded;
+            background-color: #5c9ded;
+        }
+
+        .checkout__input__checkbox input[type="radio"]:checked + .checkmark:before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<th:block th:replace="layout/user-layout :: layout">
+    <th:block th:fragment="pageContent">
+        <section class="checkout spad">
+            <div class="container">
+                <div class="checkout__form">
+                    <form th:action="@{/client/order/checkout}" method="post">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12">
+                                <h6 class="checkout__title">Thông tin giao hàng</h6>
+                                <div class="checkout__input">
+                                    <p>Họ tên<span>*</span></p>
+                                    <input name="fullname" type="text" class="input-text" required
+                                           th:value="${session.acc.fullName}">
+                                </div>
+                                <div class="checkout__input">
+                                    <p>Quốc gia<span>*</span></p>
+                                    <input name="country" type="text" class="input-text" required>
+                                </div>
+                                <div class="checkout__input">
+                                    <p>Địa chỉ<span>*</span></p>
+                                    <input name="address" type="text" class="input-text" required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="checkout__input">
+                                            <p>Số điện thoại<span>*</span></p>
+                                            <input name="phone" type="tel" class="input-text" required
+                                                   th:value="${session.acc.phone_Number}" pattern="[0-9]{10}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="checkout__input">
+                                            <p>Email<span>*</span></p>
+                                            <input name="email" type="email" class="input-text" required
+                                                   th:value="${session.acc.email}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="checkout__order">
+                                    <h4 class="order__title">Đơn hàng của bạn</h4>
+                                    <div class="checkout__order__products">
+                                        Tổng giá <span>Sản phẩm</span>
+                                    </div>
+                                    <ul class="checkout__total__products">
+                                        <th:block th:each="y : ${listCart}">
+                                            <li>
+                                                <!-- Product Avatar -->
+                                                <img th:src="@{${y.product.avatar}}" style="width: 100px; height: 100px"
+                                                     alt="Product Image"/>
+                                                <span th:text="'0'+ ${yStat.index + 1} + '. ' + ${y.product.product_Name} + ' ' + ${y.size.sizeName}"></span>
+                                                <span th:text="${#numbers.formatDecimal(y.product.price * y.count, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"></span>
+                                            </li>
+                                        </th:block>
+                                    </ul>
+                                    <ul class="checkout__total__all">
+                                        <li>Tổng cộng <span
+                                                th:text="${#numbers.formatDecimal(Total, 0, 'COMMA', 0, 'POINT')}"></span>
+                                        </li>
+                                    </ul>
+                                    <div class="checkout__input__checkbox">
+                                        <label for="payment"> COD
+                                            <input name="paymentMethod" type="radio" id="payment" value="COD">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="checkout__input__checkbox">
+                                        <label for="paypal"> VNPAY
+                                            <input name="paymentMethod" type="radio" id="paypal" value="VNPAY">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+
+                                    <button type="submit" class="site-btn">ĐẶT HÀNG</button>
+                                    <div id="errorMessage" style="color: red;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </th:block>
+</th:block>
+<script th:src="@{/js/initialization.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/checkout.js}"></script>
+<script th:src="@{/js/toast-message.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+
+</html>
