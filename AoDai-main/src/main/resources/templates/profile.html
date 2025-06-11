@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi" th:fragment="layout" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lam Duyen</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<th:block th:replace="layout/user-layout :: layout">
+    <th:block th:fragment="pageContent">
+        <h2 class="mb-4">Thông tin cá nhân</h2>
+        <form th:action="@{/client/profile/update}" method="post">
+            <input type="hidden" name="id" th:value="${user.id}"/>
+
+            <div class="form-group">
+                <label>Họ và tên</label>
+                <input type="text" name="fullName" th:value="${user.fullName}" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Địa chỉ</label>
+                <input type="text" name="address" th:value="${user.address}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Số điện thoại</label>
+                <input type="text" name="phone_Number" th:value="${user.phone_Number}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Email (không thay đổi)</label>
+                <input type="email" name="email" th:value="${user.email}" class="form-control" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Mật khẩu mới</label>
+                <input type="password" name="password" placeholder="Để trống nếu không đổi" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+        </form>
+    </th:block>
+</th:block>
+
+<script th:src="@{/js/initialization.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/checkout.js}"></script>
+<script th:src="@{/js/toast-message.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

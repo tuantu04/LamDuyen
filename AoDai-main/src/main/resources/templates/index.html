@@ -12,10 +12,14 @@
     <link rel="shortcut icon" href="//theme.hstatic.net/200000066564/1001358455/14/favicon.png?v=118"
           type="image/png"/>
     <title>
-        Thời trang thiết kế &ndash; LaLin
+        Lam Duyên
     </title>
     <link rel="canonical" href="https://lalin.vn/"/>
     <link rel="alternate" href="https://lalin.vn/" hreflang="vi-vn"/>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <meta name="keywords" content="LaLin">
     <meta name="robots" content="index,follow,noodp">
     <link rel="preload" href="//theme.hstatic.net/200000066564/1001358455/14/slideshow_1.jpg?v=118" as="image"
@@ -33,7 +37,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@200;300;400;500;600&display=swap"
           rel="stylesheet">
     <style>
+        html, body {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+        }
 
+        .mySwiper {
+          width: 100%;
+          height: 100vh;
+        }
+
+        .swiper-slide {
+          text-align: center;
+          font-size: 18px;
+          background: #000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .swiper-slide img,
+        .swiper-slide iframe {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .video-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        .video-wrapper iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
     </style>
     <link href='//theme.hstatic.net/200000066564/1001358455/14/slick.css?v=118' rel='stylesheet' type='text/css'
           media='all'/>
@@ -68,135 +109,99 @@
     <th:block th:fragment="pageContent">
         <h1 class="hidden entry-title">LaLin</h1>
 
-        <div id="home-slider">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
 
-            <div id="homepage_slider" class="">
-                <div class="item ">
-                    <a th:href="@{/product/list}" title="" aria-label="Banner 1">
-                        <picture>
-                            <source media="(max-width: 480px)"
-                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_1_mobile_large.jpg?v=118">
-                            <source media="(min-width: 481px) and (max-width: 767px)"
-                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_1_mobile.jpg?v=118">
-                            <source media="(min-width: 768px)"
-                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_1.jpg?v=118">
-                            <img src="//theme.hstatic.net/200000066564/1001358455/14/slideshow_1_mobile.jpg?v=118"
-                                 alt="">
-                        </picture>
-                    </a>
+                <!-- Slide 1: VIDEO -->
+                <div class="swiper-slide">
+                    <div class="video-wrapper">
+                        <iframe
+                                src="https://player.vimeo.com/video/1090350367?autoplay=1&loop=1&muted=1&autopause=0&background=1"
+                                frameborder="0"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen
+                        ></iframe>
+                    </div>
                 </div>
 
-                <div class="item ">
-                    <a th:href="@{/product/list}" title="" aria-label="Banner 2">
-                        <picture>
-                            <source class="" media="(max-width: 480px)"
-                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_2_mobile.jpg?v=118">
-                            <source class="" media="(min-width: 481px) and (max-width: 767px)"
-                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_2_mobile.jpg?v=118">
-                            <source class="" media="(min-width: 768px)"
-                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_2.jpg?v=118">
-                            <img class=""
-                                 src="//theme.hstatic.net/200000066564/1001358455/14/slideshow_2_mobile.jpg?v=118"
-                                 alt="">
-                        </picture>
-                    </a>
-                </div>
-                <div class="item ">
-                    <a th:href="@{/product/list}" title="" aria-label="Banner 3">
-                        <picture>
-                            <source class="" media="(max-width: 480px)"
-                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_3_mobile.jpg?v=118">
-                            <source class="" media="(min-width: 481px) and (max-width: 767px)"
-                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_3_mobile.jpg?v=118">
-                            <source class="" media="(min-width: 768px)"
-                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_3.jpg?v=118">
-                            <img class=""
-                                 src="//theme.hstatic.net/200000066564/1001358455/14/slideshow_3_mobile.jpg?v=118"
-                                 alt="">
-                        </picture>
-                    </a>
+                <!-- Slide 2: IMAGE -->
+                <div class="swiper-slide">
+                    <img src="//theme.hstatic.net/200000066564/1001358455/14/slideshow_2.jpg?v=118" />
                 </div>
 
-                <div class="item ">
-                    <a href="https://lalin.vn/collections/chuong-trinh-thang-5-2025" title="" aria-label="Banner 4">
-                        <picture>
-                            <source class="" media="(max-width: 480px)"
-                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_4_mobile.jpg?v=118">
-                            <source class="" media="(min-width: 481px) and (max-width: 767px)"
-                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_4_mobile.jpg?v=118">
-                            <source class="" media="(min-width: 768px)"
-                                    srcset="//theme.hstatic.net/200000066564/1001358455/14/slideshow_4.jpg?v=118">
-                            <img class=""
-                                 src="//theme.hstatic.net/200000066564/1001358455/14/slideshow_4_mobile.jpg?v=118"
-                                 alt="">
-                        </picture>
-                    </a>
+                <!-- Slide 3: IMAGE -->
+                <div class="swiper-slide">
+                    <img src="//theme.hstatic.net/200000066564/1001358455/14/slideshow_3.jpg?v=118" />
                 </div>
-
 
             </div>
 
+            <!-- Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
 
+            <!-- Dots -->
+            <div class="swiper-pagination"></div>
         </div>
 
         <div class="section-index home-product">
-            <div class="container-fluid">
-                <div class="section-home__head">
-                    <h3 class="home__subtitle"></h3>
-                    <h2 class="home__title">
-                        SẢN PHẨM MỚI
-                    </h2>
-                </div>
-            </div>
-            <div class="gallery-container">
-                <div class="section-home__content">
-                    <div class="section-home__content">
-                        <div class="home-product__list owl-carousel owl-theme style-nav row">
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pro-loop"
-                                 th:each="product : ${products}">
-                                <div class="product-block product-resize"
-                                     th:id="'collection_loop_' + ${product.id}">
-                                    <div class="product-img">
-                                        <a th:href="@{/product/{id}(id=${product.id})}"
-                                           th:title="${product.product_Name}" class="image-resize ratiobox">
-                                            <picture>
-                                                <source media="(max-width: 480px)"
-                                                        th:data-srcset="@{${product.avatar}}"
-                                                />
-                                                <source media="(min-width: 481px) and (max-width: 767px)"
-                                                        th:data-srcset="@{${product.avatar}}"
-                                                />
-                                                <source media="(min-width: 768px)"
-                                                        th:data-srcset="@{${product.avatar}}"
-                                                />
-                                                <img th:src="@{${product.avatar}}"
-                                                     class="lazyload img-loop"
-                                                />
-                                            </picture>
-                                        </a>
-                                    </div>
-                                    <div class="product-detail clearfix">
-                                        <div class="box-pro-detail">
-                                            <div class="box-pro-title">
-                                                <h3 class="pro-name">
-                                                    <a th:href="@{/product/{id}(id=${product.id})}"
-                                                       th:title="${product.product_Name}"><span
-                                                            th:text="${product.product_Name}"></span></a>
-                                                </h3>
-                                            </div>
-                                            <div class="box-pro-prices">
-                                                <p class="pro-price">
-                                                    <span th:text="${product.price} + '₫'"></span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!--            <div class="container-fluid">-->
+<!--                <div class="section-home__head">-->
+<!--                    <h3 class="home__subtitle"></h3>-->
+<!--                    <h2 class="home__title">-->
+<!--                        SẢN PHẨM MỚI-->
+<!--                    </h2>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="gallery-container">-->
+<!--                <div class="section-home__content">-->
+<!--                    <div class="section-home__content">-->
+<!--                        <div class="home-product__list owl-carousel owl-theme style-nav row">-->
+<!--                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pro-loop"-->
+<!--                                 th:each="product : ${products}">-->
+<!--                                <div class="product-block product-resize"-->
+<!--                                     th:id="'collection_loop_' + ${product.id}">-->
+<!--                                    <div class="product-img">-->
+<!--                                        <a th:href="@{/product/{id}(id=${product.id})}"-->
+<!--                                           th:title="${product.product_Name}" class="image-resize ratiobox">-->
+<!--                                            <picture>-->
+<!--                                                <source media="(max-width: 480px)"-->
+<!--                                                        th:data-srcset="@{${product.avatar}}"-->
+<!--                                                />-->
+<!--                                                <source media="(min-width: 481px) and (max-width: 767px)"-->
+<!--                                                        th:data-srcset="@{${product.avatar}}"-->
+<!--                                                />-->
+<!--                                                <source media="(min-width: 768px)"-->
+<!--                                                        th:data-srcset="@{${product.avatar}}"-->
+<!--                                                />-->
+<!--                                                <img th:src="@{${product.avatar}}"-->
+<!--                                                     class="lazyload img-loop"-->
+<!--                                                />-->
+<!--                                            </picture>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                    <div class="product-detail clearfix">-->
+<!--                                        <div class="box-pro-detail">-->
+<!--                                            <div class="box-pro-title">-->
+<!--                                                <h3 class="pro-name">-->
+<!--                                                    <a th:href="@{/product/{id}(id=${product.id})}"-->
+<!--                                                       th:title="${product.product_Name}"><span-->
+<!--                                                            th:text="${product.product_Name}"></span></a>-->
+<!--                                                </h3>-->
+<!--                                            </div>-->
+<!--                                            <div class="box-pro-prices">-->
+<!--                                                <p class="pro-price">-->
+<!--                                                    <span th:text="${product.price} + '₫'"></span>-->
+<!--                                                </p>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
 
         <div class="section-index home-featured">
@@ -278,7 +283,7 @@
                 <div class="htp-tablinks">
 
                     <a href="javascript:void(0)" class="htp-tablink mix-match active" data-id="htp-tab-1">Nàng thơ
-                        Lalin</a>
+                        Lam Duyên</a>
 
 
                 </div>
@@ -313,5 +318,23 @@
 <script th:src="@{/js/checkout.js}"></script>
 <script th:src="@{/js/toast-message.js}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+<!--      autoplay: {-->
+<!--        delay: 7000,-->
+<!--        disableOnInteraction: false,-->
+<!--      },-->
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+</script>
 </body>
 </html>

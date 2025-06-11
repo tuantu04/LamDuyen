@@ -56,13 +56,16 @@
 
                                 <div class="mb-3">
                                     <label>Hình ảnh mới</label>
-                                    <input type="file" name="img" accept="image/*" class="form-control">
+                                    <input type="file" id="imageInput" name="img" accept="image/*" class="form-control">
+
+                                    <div class="mt-2" id="imagePreview"></div>
 
                                     <div class="mt-2" th:if="${product.avatar}">
                                         <p>Ảnh hiện tại:</p>
                                         <img th:src="@{${product.avatar}}" style="max-width: 150px;" alt="Ảnh cũ">
                                     </div>
                                 </div>
+
 
                                 <div class="mb-3">
                                     <label class="form-label">Trạng thái</label>
@@ -82,6 +85,26 @@
                 </div>
             </div>
         </div>
+        <script>
+            document.getElementById("imageInput").addEventListener("change", function (event) {
+                const preview = document.getElementById("imagePreview");
+                preview.innerHTML = "";
+
+                const file = event.target.files[0];
+                if (file && file.type.startsWith("image/")) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const img = document.createElement("img");
+                        img.src = e.target.result;
+                        img.style.maxWidth = "150px";
+                        img.className = "mt-2 img-thumbnail";
+                        preview.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        </script>
+
     </th:block>
 </th:block>
 </body>

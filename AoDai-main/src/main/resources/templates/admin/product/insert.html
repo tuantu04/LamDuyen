@@ -64,11 +64,10 @@
                                         <div class="upload__btn-box">
                                             <label class="upload__btn">
                                                 <p style="margin-bottom: 0px;">Chọn ảnh</p>
-                                                <input accept="image/*" type="file" name="img"
-                                                       data-max_length="20" class="upload__inputfile">
+                                                <input id="imageInput" accept="image/*" type="file" name="img" class="upload__inputfile">
                                             </label>
                                         </div>
-                                        <div class="upload__img-wrap"></div>
+                                        <div id="imagePreview" class="upload__img-wrap mt-2"></div>
                                     </div>
                                 </div>
                             </div>
@@ -82,6 +81,27 @@
                 </div>
             </div>
         </div>
+        <script>
+            document.getElementById("imageInput").addEventListener("change", function (event) {
+                const preview = document.getElementById("imagePreview");
+                preview.innerHTML = "";
+
+                const file = event.target.files[0];
+                if (file && file.type.startsWith("image/")) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const imgElement = document.createElement("img");
+                        imgElement.src = e.target.result;
+                        imgElement.classList.add("img-thumbnail");
+                        imgElement.style.maxWidth = "200px";
+                        imgElement.style.marginTop = "10px";
+                        preview.appendChild(imgElement);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        </script>
+
     </th:block>
 </th:block>
 </body>

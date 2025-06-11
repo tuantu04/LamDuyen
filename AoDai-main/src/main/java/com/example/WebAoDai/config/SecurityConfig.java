@@ -73,7 +73,7 @@ public class SecurityConfig {
                         .usernameParameter("email")
                         .passwordParameter("password")
                         .defaultSuccessUrl("/", true)
-                        .failureUrl("/loginError")
+                        .failureHandler(new CustomAuthenticationFailureHandler())
                 )
                 .authorizeHttpRequests(at -> at.requestMatchers("/", "/home", "/login/**", "/register", "/save", "re-send", "/image/**", "/js/**", "/lib/**", "/style/**", "/slider/**", "/assets/**",
                         "/api/storage/**", "recover", "send-otp-recover", "otp-check", "confirm-otp", "send-otp-recover", "confirm-otp-recover", "/css/**",

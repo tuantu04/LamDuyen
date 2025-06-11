@@ -5,109 +5,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="revisit-after" content="1 day"/>
     <meta name="HandheldFriendly" content="true">
-    <link rel="shortcut icon" href="//theme.hstatic.net/200000066564/1001358455/14/favicon.png?v=118"
-          type="image/png"/>
-    <title>
-        Thời trang thiết kế &ndash; LaLin
-    </title>
+    <link rel="shortcut icon" href="//theme.hstatic.net/200000066564/1001358455/14/favicon.png?v=118" type="image/png"/>
+    <title>Thời trang thiết kế – LaLin</title>
     <link rel="canonical" href="https://lalin.vn/"/>
     <link rel="alternate" href="https://lalin.vn/" hreflang="vi-vn"/>
     <meta name="keywords" content="LaLin">
     <meta name="robots" content="index,follow,noodp">
-    <link rel="preload" href="//theme.hstatic.net/200000066564/1001358455/14/slideshow_1.jpg?v=118" as="image"
-          media="(min-width: 768px)">
-    <link rel="preload" href="//theme.hstatic.net/200000066564/1001358455/14/slideshow_2_mobile.jpg?v=118" as="image"
-          media="(max-width: 767px)">
+    <link rel="preload" href="//theme.hstatic.net/200000066564/1001358455/14/slideshow_1.jpg?v=118" as="image" media="(min-width: 768px)">
+    <link rel="preload" href="//theme.hstatic.net/200000066564/1001358455/14/slideshow_2_mobile.jpg?v=118" as="image" media="(max-width: 767px)">
 
     <style>
+        body {
+            font-family: 'Saira Condensed', sans-serif;
+            background-color: #F5E8C7;
+            color: #2F4F2F;
+            margin: 0;
+        }
         .search-container {
             display: flex;
             align-items: center;
             max-width: 400px;
             margin: 20px auto;
-            border: 2px solid #ddd;
-            border-radius: 8px;
+            border: 2px solid #4CAF50;
+            border-radius: 20px;
             overflow: hidden;
             background-color: #fff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-
         #searchInput {
             flex: 1;
-            padding: 10px 12px;
+            padding: 10px 15px;
             border: none;
             outline: none;
-            font-size: 16px;
+            font-size: 14px;
+            color: #333;
         }
-
         .search-container button {
-            padding: 10px 16px;
+            padding: 10px 20px;
             background-color: #4CAF50;
             color: white;
             border: none;
             cursor: pointer;
             font-weight: bold;
+            border-radius: 0 20px 20px 0;
             transition: background-color 0.3s ease;
         }
-
         .search-container button:hover {
             background-color: #45a049;
         }
-
-    </style>
-    <link rel="preload" as="style" href="//theme.hstatic.net/200000066564/1001358455/14/styles.css?v=118">
-    <link rel="preload" href="//theme.hstatic.net/200000066564/1001358455/14/logo.png?v=118" as="image">
-    <link rel="preconnect" href="Saira+Condensed:wght@200;300;400;500;600&display=swap">
-    <link rel="preload" href="Saira+Condensed:wght@200;300;400;500;600&display=swap" as="style">
-
-    <link rel="stylesheet" th:href="@{/css/lalin.css}">
-    <link rel="stylesheet" th:href="@{/css/list.css}">
-    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@200;300;400;500;600&display=swap"
-          rel="stylesheet">
-    <style>
-
-    </style>
-    <link href='//theme.hstatic.net/200000066564/1001358455/14/slick.css?v=118' rel='stylesheet' type='text/css'
-          media='all'/>
-    <link href='//theme.hstatic.net/200000066564/1001358455/14/slick-theme.css?v=118' rel='stylesheet' type='text/css'
-          media='all'/>
-
-    <link href="//theme.hstatic.net/200000066564/1001358455/14/styles.css?v=118" rel="preload stylesheet" as="style"
-          type="text/css">
-
-    <link href='//theme.hstatic.net/200000066564/1001358455/14/mixmatch.css?v=118' rel='stylesheet' type='text/css'
-          media='all'/>
-
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.8.36/dayjs.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.8.36/plugin/customParseFormat.js"></script>
-    <script defer src='https://stats.hstatic.net/beacon.min.js' hrv-beacon-t='200000066564'></script>
-    <style>
-        .product-img {
-            height: 400px; /* Chiều cao cố định của ảnh sản phẩm */
-            overflow: hidden; /* Ẩn phần ảnh vượt ra ngoài */
-            position: relative; /* Đảm bảo rằng ảnh có thể được căn chỉnh đúng */
+        .wrap-collection-title {
+            padding: 20px;
+            background-color: #F5E8C7;
+            border-bottom: 1px solid #D2B48C;
         }
-
+        .box-filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .colsort-row, .option {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .colsort__btn, .lb-filter {
+            font-size: 14px;
+            color: #2F4F2F;
+            cursor: pointer;
+        }
+        .colsort__btn .icon-arr, .custom-dropdown {
+            margin-left: 5px;
+        }
+        .custom-dropdown__select {
+            padding: 5px;
+            border: 1px solid #D2B48C;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #2F4F2F;
+        }
+        .product-img {
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
         .product-img picture,
         .product-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
+        .group-filter {
+            margin-bottom: 15px;
+        }
+        .layered_subtitle {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .check-box-list {
+            list-style: none;
+            padding: 0;
+        }
+        .check-box-list li {
+            margin-bottom: 5px;
+        }
+        .check-box-list input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .filter-color span {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
         @media (max-width: 768px) {
+            .search-container {
+                max-width: 90%;
+            }
             .product-img {
                 height: 150px;
             }
+            .box-filters {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .option {
+                margin-top: 10px;
+            }
         }
-
     </style>
+    <link rel="preload" as="style" href="//theme.hstatic.net/200000066564/1001358455/14/styles.css?v=118">
+    <link rel="preload" href="//theme.hstatic.net/200000066564/1001358455/14/logo.png?v=118" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@200;300;400;500;600&display=swap" as="style">
+    <link rel="stylesheet" th:href="@{/css/lalin.css}">
+    <link rel="stylesheet" th:href="@{/css/list.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href='//theme.hstatic.net/200000066564/1001358455/14/slick.css?v=118' rel='stylesheet' type='text/css' media='all'/>
+    <link href='//theme.hstatic.net/200000066564/1001358455/14/slick-theme.css?v=118' rel='stylesheet' type='text/css' media='all'/>
+    <link href="//theme.hstatic.net/200000066564/1001358455/14/styles.css?v=118" rel="preload stylesheet" as="style" type="text/css">
+    <link href='//theme.hstatic.net/200000066564/1001358455/14/mixmatch.css?v=118' rel='stylesheet' type='text/css' media='all'/>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.8.36/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.8.36/plugin/customParseFormat.js"></script>
+    <script defer src='https://stats.hstatic.net/beacon.min.js' hrv-beacon-t='200000066564'></script>
 </head>
-
 
 <body>
 <th:block th:replace="layout/user-layout :: layout">
@@ -116,20 +160,17 @@
             <div class="breadcrumb-shop" style="display:none">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pd5  ">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pd5">
                             <ol class="breadcrumb breadcrumb-arrows" itemscope
                                 itemtype="http://schema.org/BreadcrumbList">
                                 <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                    <a href="/" target="_self" itemprop="item"><span itemprop="name">Trang
-                                                chủ</span></a>
+                                    <a href="/" target="_self" itemprop="item"><span itemprop="name">Trang chủ</span></a>
                                     <meta itemprop="position" content="1"/>
                                 </li>
-
-
                                 <li class="active" itemprop="itemListElement" itemscope
                                     itemtype="http://schema.org/ListItem">
-                                        <span itemprop="item" content="https://lalin.vn/collections/tat-ca-sp"><span
-                                                itemprop="name">tất cả sản phẩm</span></span>
+                                    <span itemprop="item" content="https://lalin.vn/collections/tat-ca-sp"><span
+                                            itemprop="name">tất cả sản phẩm</span></span>
                                     <meta itemprop="position" content="2"/>
                                 </li>
                             </ol>
@@ -137,335 +178,180 @@
                     </div>
                 </div>
             </div>
-            <div class="main-content ">
+            <div class="main-content">
                 <div id="collection-body" class="wrap-collection-body clearfix">
                     <div class="gallery-container">
                         <div class="wrap-collection-title">
-                            <div class="heading-collection">
-                                <div class="nav-coll">
-                                    <ul>
-                                    </ul>
+                            <form method="get" th:action="@{/product/list}" id="productSearchForm" name="productSearchForm">
+                                <div class="search-container">
+                                    <input type="text" name="search" id="searchInput" placeholder="Tìm sản phẩm yêu thích của bạn..."/>
+                                    <button type="submit">Tìm kiếm</button>
                                 </div>
-
-                                <form method="get" th:action="@{/product/list}" id="productSearchForm"
-                                      name="productSearchForm">
-                                    <div class="search-container">
-                                        <input type="text" name="search" id="searchInput"
-                                               placeholder="Tìm kiếm sản phẩm..."/>
-                                        <button type="submit">🔍 Tìm kiếm</button>
+                            </form>
+                            <div class="box-filters">
+                                <div class="colsort-row col-filter">
+                                    <div class="colsort__btn">
+<!--                                        <span>Bộ lọc</span>-->
+                                        <span class="icon-arr"><i class="fa fa-angle-down"></i></span>
                                     </div>
-                                </form>
-
-
-                                <div class="box-filters">
-                                    <div class="colsort-row col-filter">
-                                        <div class="colsort__btn">
-                                            <span>Bộ lọc</span>
-                                            <span class="icon-arr"><i class="fa fa-angle-down"></i></span>
-                                        </div>
-                                        <div class="colsort-content">
-                                            <div class="filter-content">
-
-                                                <div class="group-filter" aria-expanded="true">
-                                                    <div class="layered_subtitle dropdown-filter"><span>Thương
-                                                                hiệu</span></div>
-                                                    <div class="layered-content bl-filter filter-brand">
-                                                        <ul class="check-box-list">
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-brand-p1"
-                                                                       value="Lalin" name="brand-filter"
-                                                                       data-vendor="(vendor:product contains Lalin)"/>
-                                                                <label for="data-brand-p1">Lalin</label>
-                                                            </li>
-
-                                                        </ul>
-                                                    </div>
+                                    <div class="colsort-content">
+                                        <div class="filter-content">
+                                            <div class="group-filter" aria-expanded="true">
+                                                <div class="layered_subtitle dropdown-filter"><span>Thương hiệu</span></div>
+                                                <div class="layered-content bl-filter filter-brand">
+                                                    <ul class="check-box-list">
+                                                        <li>
+                                                            <input type="checkbox" id="data-brand-p1" value="Lalin" name="brand-filter" data-vendor="(vendor:product contains Lalin)"/>
+                                                            <label for="data-brand-p1">Lalin</label>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-
-                                                <!-- ./filter price -->
-
-                                                <div class="group-filter" aria-expanded="true">
-                                                    <div class="layered_subtitle dropdown-filter"><span>Giá sản
-                                                                phẩm</span></div>
-                                                    <div class="layered-content bl-filter filter-price">
-                                                        <ul class="check-box-list">
-                                                            <li>
-                                                                <input type="checkbox" id="p1" name="cc"
-                                                                       data-price="(price_variant:product < 500000)"/>
-                                                                <label for="p1">
-                                                                    <span>Dưới</span> 500,000₫
-                                                                </label>
-                                                            </li>
-                                                            <li>
-                                                                <input type="checkbox" id="p2" name="cc"
-                                                                       data-price="(price_variant:product range 500000_1000000)"/>
-                                                                <label for="p2">
-                                                                    500,000₫ - 1,000,000₫
-                                                                </label>
-                                                            </li>
-                                                            <li>
-                                                                <input type="checkbox" id="p3" name="cc"
-                                                                       data-price="(price_variant:product range 1000000_1500000)"/>
-                                                                <label for="p3">
-                                                                    1,000,000₫ - 1,500,000₫
-                                                                </label>
-                                                            </li>
-                                                            <li>
-                                                                <input type="checkbox" id="p4" name="cc"
-                                                                       data-price="(price_variant:product range 2000000_5000000)"/>
-                                                                <label for="p4">
-                                                                    2,000,000₫ - 5,000,000₫
-                                                                </label>
-                                                            </li>
-                                                            <li>
-                                                                <input type="checkbox" id="p5" name="cc"
-                                                                       data-price="(price_variant:product > 5000000)"/>
-                                                                <label for="p5">
-                                                                    <span>Trên</span> 5,000,000₫
-                                                                </label>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                            </div>
+                                            <div class="group-filter" aria-expanded="true">
+                                                <div class="layered_subtitle dropdown-filter"><span>Giá sản phẩm</span></div>
+                                                <div class="layered-content bl-filter filter-price">
+                                                    <ul class="check-box-list">
+                                                        <li>
+                                                            <input type="checkbox" id="p1" name="cc" data-price="(price_variant:product < 500000)"/>
+                                                            <label for="p1"><span>Dưới</span> 500,000₫</label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="p2" name="cc" data-price="(price_variant:product range 500000_1000000)"/>
+                                                            <label for="p2">500,000₫ - 1,000,000₫</label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="p3" name="cc" data-price="(price_variant:product range 1000000_1500000)"/>
+                                                            <label for="p3">1,000,000₫ - 1,500,000₫</label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="p4" name="cc" data-price="(price_variant:product range 2000000_5000000)"/>
+                                                            <label for="p4">2,000,000₫ - 5,000,000₫</label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="p5" name="cc" data-price="(price_variant:product > 5000000)"/>
+                                                            <label for="p5"><span>Trên</span> 5,000,000₫</label>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-
-                                                <!-- ./filter color -->
-
-                                                <div class="group-filter" aria-expanded="true">
-                                                    <div class="layered_subtitle dropdown-filter"><span>Màu
-                                                                sắc</span></div>
-                                                    <div class="layered-content filter-color s-filter">
-                                                        <ul class="check-box-list">
-
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-color-p1"
-                                                                       value="Hồng" name="color-filter"
-                                                                       data-color="(variant:product contains Hồng)"/>
-                                                                <label for="data-color-p1"><span
-                                                                        style="background:#ef5777"></span></label>
-                                                            </li>
-
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-color-p2"
-                                                                       value="Vàng" name="color-filter"
-                                                                       data-color="(variant:product contains Vàng)"/>
-                                                                <label for="data-color-p2"><span
-                                                                        style="background:#ffd32a"></span></label>
-                                                            </li>
-
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-color-p3"
-                                                                       value="Xám" name="color-filter"
-                                                                       data-color="(variant:product contains Xám)"/>
-                                                                <label for="data-color-p3"><span
-                                                                        style="background:#d2dae2"></span></label>
-                                                            </li>
-
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-color-p4"
-                                                                       value="Xanh" name="color-filter"
-                                                                       data-color="(variant:product contains Xanh)"/>
-                                                                <label for="data-color-p4"><span
-                                                                        style="background:#3c40c6"></span></label>
-                                                            </li>
-
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-color-p5"
-                                                                       value="Xanh lá" name="color-filter"
-                                                                       data-color="(variant:product contains Xanh lá)"/>
-                                                                <label for="data-color-p5"><span
-                                                                        style="background:#0be881"></span></label>
-                                                            </li>
-
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-color-p6"
-                                                                       value="Sen" name="color-filter"
-                                                                       data-color="(variant:product contains Sen)"/>
-                                                                <label for="data-color-p6"><span
-                                                                        style="background:#f53b57"></span></label>
-                                                            </li>
-
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-color-p7"
-                                                                       value="Xanh biển" name="color-filter"
-                                                                       data-color="(variant:product contains Xanh biển)"/>
-                                                                <label for="data-color-p7"><span
-                                                                        style="background:#0fbcf9"></span></label>
-                                                            </li>
-
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-color-p8"
-                                                                       value="Đen" name="color-filter"
-                                                                       data-color="(variant:product contains Đen)"/>
-                                                                <label for="data-color-p8"><span
-                                                                        style="background:#000000"></span></label>
-                                                            </li>
-
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-color-p9"
-                                                                       value="Trắng" name="color-filter"
-                                                                       data-color="(variant:product contains Trắng)"/>
-                                                                <label for="data-color-p9"><span
-                                                                        style="background:#ffffff"></span></label>
-                                                            </li>
-
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-color-p10"
-                                                                       value="Đỏ" name="color-filter"
-                                                                       data-color="(variant:product contains Đỏ)"/>
-                                                                <label for="data-color-p10"><span
-                                                                        style="background:#ff3f34"></span></label>
-                                                            </li>
-
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-color-p11"
-                                                                       value="Tím" name="color-filter"
-                                                                       data-color="(variant:product contains Tím)"/>
-                                                                <label for="data-color-p11"><span
-                                                                        style="background:#a55eea"></span></label>
-                                                            </li>
-
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-color-p12"
-                                                                       value="Pure Apple" name="color-filter"
-                                                                       data-color="(variant:product contains Pure Apple)"/>
-                                                                <label for="data-color-p12"><span
-                                                                        style="background:#6ab04c"></span></label>
-                                                            </li>
-
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-color-p13"
-                                                                       value="Blue" name="color-filter"
-                                                                       data-color="(variant:product contains Blue)"/>
-                                                                <label for="data-color-p13"><span
-                                                                        style="background:#0c2461"></span></label>
-                                                            </li>
-
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-color-p14"
-                                                                       value="Cam" name="color-filter"
-                                                                       data-color="(variant:product contains Cam)"/>
-                                                                <label for="data-color-p14"><span
-                                                                        style="background:#fa8231"></span></label>
-                                                            </li>
-
-
-                                                        </ul>
-                                                    </div>
+                                            </div>
+                                            <div class="group-filter" aria-expanded="true">
+                                                <div class="layered_subtitle dropdown-filter"><span>Màu sắc</span></div>
+                                                <div class="layered-content filter-color s-filter">
+                                                    <ul class="check-box-list">
+                                                        <li>
+                                                            <input type="checkbox" id="data-color-p1" value="Hồng" name="color-filter" data-color="(variant:product contains Hồng)"/>
+                                                            <label for="data-color-p1"><span style="background:#ef5777"></span></label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-color-p2" value="Vàng" name="color-filter" data-color="(variant:product contains Vàng)"/>
+                                                            <label for="data-color-p2"><span style="background:#ffd32a"></span></label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-color-p3" value="Xám" name="color-filter" data-color="(variant:product contains Xám)"/>
+                                                            <label for="data-color-p3"><span style="background:#d2dae2"></span></label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-color-p4" value="Xanh" name="color-filter" data-color="(variant:product contains Xanh)"/>
+                                                            <label for="data-color-p4"><span style="background:#3c40c6"></span></label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-color-p5" value="Xanh lá" name="color-filter" data-color="(variant:product contains Xanh lá)"/>
+                                                            <label for="data-color-p5"><span style="background:#0be881"></span></label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-color-p6" value="Sen" name="color-filter" data-color="(variant:product contains Sen)"/>
+                                                            <label for="data-color-p6"><span style="background:#f53b57"></span></label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-color-p7" value="Xanh biển" name="color-filter" data-color="(variant:product contains Xanh biển)"/>
+                                                            <label for="data-color-p7"><span style="background:#0fbcf9"></span></label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-color-p8" value="Đen" name="color-filter" data-color="(variant:product contains Đen)"/>
+                                                            <label for="data-color-p8"><span style="background:#000000"></span></label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-color-p9" value="Trắng" name="color-filter" data-color="(variant:product contains Trắng)"/>
+                                                            <label for="data-color-p9"><span style="background:#ffffff"></span></label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-color-p10" value="Đỏ" name="color-filter" data-color="(variant:product contains Đỏ)"/>
+                                                            <label for="data-color-p10"><span style="background:#ff3f34"></span></label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-color-p11" value="Tím" name="color-filter" data-color="(variant:product contains Tím)"/>
+                                                            <label for="data-color-p11"><span style="background:#a55eea"></span></label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-color-p12" value="Pure Apple" name="color-filter" data-color="(variant:product contains Pure Apple)"/>
+                                                            <label for="data-color-p12"><span style="background:#6ab04c"></span></label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-color-p13" value="Blue" name="color-filter" data-color="(variant:product contains Blue)"/>
+                                                            <label for="data-color-p13"><span style="background:#0c2461"></span></label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-color-p14" value="Cam" name="color-filter" data-color="(variant:product contains Cam)"/>
+                                                            <label for="data-color-p14"><span style="background:#fa8231"></span></label>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-
-                                                <!-- ./filter size -->
-
-                                                <div class="group-filter" aria-expanded="true">
-                                                    <div class="layered_subtitle dropdown-filter"><span>Kích
-                                                                cỡ</span></div>
-                                                    <div class="layered-content filter-size s-filter">
-
-                                                        <ul class="check-box-list clearfix">
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-size-p1" value="S"
-                                                                       name="size-filter"
-                                                                       data-size="(variant:product contains S)"/>
-                                                                <label for="data-size-p1">S</label>
-                                                            </li>
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-size-p2" value="M"
-                                                                       name="size-filter"
-                                                                       data-size="(variant:product contains M)"/>
-                                                                <label for="data-size-p2">M</label>
-                                                            </li>
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-size-p3" value="L"
-                                                                       name="size-filter"
-                                                                       data-size="(variant:product contains L)"/>
-                                                                <label for="data-size-p3">L</label>
-                                                            </li>
-
-                                                            <li>
-                                                                <input type="checkbox" id="data-size-p4" value="XL"
-                                                                       name="size-filter"
-                                                                       data-size="(variant:product contains XL)"/>
-                                                                <label for="data-size-p4">XL</label>
-                                                            </li>
-
-                                                        </ul>
-                                                    </div>
+                                            </div>
+                                            <div class="group-filter" aria-expanded="true">
+                                                <div class="layered_subtitle dropdown-filter"><span>Kích cỡ</span></div>
+                                                <div class="layered-content filter-size s-filter">
+                                                    <ul class="check-box-list clearfix">
+                                                        <li>
+                                                            <input type="checkbox" id="data-size-p1" value="S" name="size-filter" data-size="(variant:product contains S)"/>
+                                                            <label for="data-size-p1">S</label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-size-p2" value="M" name="size-filter" data-size="(variant:product contains M)"/>
+                                                            <label for="data-size-p2">M</label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-size-p3" value="L" name="size-filter" data-size="(variant:product contains L)"/>
+                                                            <label for="data-size-p3">L</label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="data-size-p4" value="XL" name="size-filter" data-size="(variant:product contains XL)"/>
+                                                            <label for="data-size-p4">XL</label>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="option browse-tags text-right">
-                                        <label class="lb-filter" for="sort-by">Sắp xếp</label>
-                                        <span class="custom-dropdown custom-dropdown--grey">
-        <form action="#" method="get" id="sort-form">
-            <select name="sortby" class="sort-by custom-dropdown__select"
-                    onchange="document.getElementById('sort-form').submit();">
-                <option value="price-ascending" th:selected="${param.sortby == 'price-ascending'}"
-                        data-filter="&sortby=(price:product=asc)">Giá: Tăng dần</option>
-                <option value="price-descending" th:selected="${param.sortby == 'price-descending'}"
-                        data-filter="&sortby=(price:product=desc)">Giá: Giảm dần</option>
-                <option value="title-ascending" th:selected="${param.sortby == 'title-ascending'}"
-                        data-filter="&sortby=(title:product=asc)">Tên: A-Z</option>
-                <option value="title-descending" th:selected="${param.sortby == 'title-descending'}"
-                        data-filter="&sortby=(title:product=desc)">Tên: Z-A</option>
-                <option value="created-ascending" th:selected="${param.sortby == 'created-ascending'}"
-                        data-filter="&sortby=(updated_at:product=desc)">Cũ nhất</option>
-                <option value="created-descending" th:selected="${param.sortby == 'created-descending'}"
-                        data-filter="&sortby=(updated_at:product=asc)">Mới nhất</option>
-                <option value="quantity-descending" th:selected="${param.sortby == 'quantity-descending'}">Tồn kho: Giảm dần</option>
-            </select>
-        </form>
-    </span>
-                                    </div>
-
-
                                 </div>
-
+                                <div class="option browse-tags text-right">
+                                    <label class="lb-filter" for="sort-by">Sắp xếp</label>
+                                    <span class="custom-dropdown custom-dropdown--grey">
+                                        <form action="#" method="get" id="sort-form">
+                                            <select name="sortby" class="sort-by custom-dropdown__select" onchange="document.getElementById('sort-form').submit();">
+                                                <option value="price-ascending" th:selected="${param.sortby == 'price-ascending'}" data-filter="&sortby=(price:product=asc)">Giá: Tăng dần</option>
+                                                <option value="price-descending" th:selected="${param.sortby == 'price-descending'}" data-filter="&sortby=(price:product=desc)">Giá: Giảm dần</option>
+                                                <option value="title-ascending" th:selected="${param.sortby == 'title-ascending'}" data-filter="&sortby=(title:product=asc)">Tên: A-Z</option>
+                                                <option value="title-descending" th:selected="${param.sortby == 'title-descending'}" data-filter="&sortby=(title:product=desc)">Tên: Z-A</option>
+                                                <option value="created-ascending" th:selected="${param.sortby == 'created-ascending'}" data-filter="&sortby=(updated_at:product=desc)">Cũ nhất</option>
+                                                <option value="created-descending" th:selected="${param.sortby == 'created-descending'}" data-filter="&sortby=(updated_at:product=asc)">Mới nhất</option>
+                                                <option value="quantity-descending" th:selected="${param.sortby == 'quantity-descending'}">Tồn kho: Giảm dần</option>
+                                            </select>
+                                        </form>
+                                    </span>
+                                </div>
                             </div>
                         </div>
-
-
                         <div class="row filter-here">
                             <div class="content-product-list product-list filter clearfix">
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pro-loop"
-                                     th:each="product : ${products}">
-                                    <div class="product-block product-resize"
-                                         th:id="'collection_loop_' + ${product.id}">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pro-loop" th:each="product : ${products}">
+                                    <div class="product-block product-resize" th:id="'collection_loop_' + ${product.id}">
                                         <div class="product-img">
-                                            <a th:href="@{/product/{id}(id=${product.id})}"
-                                               th:title="${product.product_Name}" class="image-resize ratiobox">
+                                            <a th:href="@{/product/{id}(id=${product.id})}" th:title="${product.product_Name}" class="image-resize ratiobox">
                                                 <picture>
-                                                    <source media="(max-width: 480px)"
-                                                            th:data-srcset="@{${product.avatar}}"
-                                                    />
-                                                    <source media="(min-width: 481px) and (max-width: 767px)"
-                                                            th:data-srcset="@{${product.avatar}}"
-                                                    />
-                                                    <source media="(min-width: 768px)"
-                                                            th:data-srcset="@{${product.avatar}}"
-                                                    />
-                                                    <img th:src="@{${product.avatar}}"
-                                                         class="lazyload img-loop"
-                                                    />
+                                                    <source media="(max-width: 480px)" th:data-srcset="@{${product.avatar}}"/>
+                                                    <source media="(min-width: 481px) and (max-width: 767px)" th:data-srcset="@{${product.avatar}}"/>
+                                                    <source media="(min-width: 768px)" th:data-srcset="@{${product.avatar}}"/>
+                                                    <img th:src="@{${product.avatar}}" class="lazyload img-loop"/>
                                                 </picture>
                                             </a>
                                         </div>
@@ -473,9 +359,7 @@
                                             <div class="box-pro-detail">
                                                 <div class="box-pro-title">
                                                     <h3 class="pro-name">
-                                                        <a th:href="@{/product/{id}(id=${product.id})}"
-                                                           th:title="${product.product_Name}"><span
-                                                                th:text="${product.product_Name}"></span></a>
+                                                        <a th:href="@{/product/{id}(id=${product.id})}" th:title="${product.product_Name}"><span th:text="${product.product_Name}"></span></a>
                                                     </h3>
                                                 </div>
                                                 <div class="box-pro-prices">
@@ -488,18 +372,14 @@
                                     </div>
                                 </div>
                                 <div class="sortpagibar pagi clearfix text-center col-md-12 col-xs-12">
-                                    <div class="btnLoadMore" style="display: none;"
-                                         data-url="/collections/tat-ca-sp?page=2">
-                                        <img src="//theme.hstatic.net/200000066564/1001358455/14/down-arrow.png?v=118"
-                                             alt="Down Arrow" style="width:50px;"><br>
+                                    <div class="btnLoadMore" style="display: none;" data-url="/collections/tat-ca-sp?page=2">
+                                        <img src="//theme.hstatic.net/200000066564/1001358455/14/down-arrow.png?v=118" alt="Down Arrow" style="width:50px;"><br>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <input type="text" class="hidden" id="coll-handle" value="(collectionid:product=1002052091)"/>
                 <input type="text" id="coll-h" class="hidden" value="tat-ca-sp"/>
                 <input type="text" id="total-page" class="hidden" value="3"/>

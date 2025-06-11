@@ -7,142 +7,203 @@
     <title>Product Management</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Thêm Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        /* Đặt font chữ toàn trang */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #e0e0e0;
+            overflow-x: hidden;
         }
 
+        /* Container */
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 3rem 2rem;
         }
 
+        /* Header */
         header.header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            animation: fadeIn 1s ease-in-out;
         }
 
         header.header h1 {
-            font-size: 3rem;
-            color: #333;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00ddeb, #ff6a88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         header.header p {
-            font-size: 1.5rem;
-            color: #555;
+            font-size: 1.25rem;
+            color: #b0bec5;
+            margin-top: 0.5rem;
+            font-style: italic;
         }
 
+        /* Section */
         section {
-            margin-bottom: 2.5rem;
-            background-color: #fff;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        input[type="text"], input[type="file"] {
-            width: 100%;
-            padding: 0.6rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            padding: 0.8rem 1.5rem;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover:not(:disabled) {
-            background-color: #0056b3;
-        }
-
-        button:disabled {
-            background-color: #ddd;
-            cursor: not-allowed;
-        }
-
-        .error-message {
-            color: red;
-            margin-bottom: 1rem;
-        }
-
-        .preview-section img,
-        .processed-image-section img {
-            max-width: 100%;
-            max-height: 250px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .preview-section,
-        .processed-image-section {
-            margin-top: 1rem;
+        /* Try On Section */
+        #try-on-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
         }
 
+        input[type="file"] {
+            width: 100%;
+            max-width: 400px;
+            padding: 0.8rem;
+            margin-bottom: 1.2rem;
+            border-radius: 12px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #e0e0e0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="file"]:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Button */
+        button {
+            padding: 0.9rem 2rem;
+            background: linear-gradient(45deg, #00ddeb, #ff6a88);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        button:hover:not(:disabled) {
+            background: linear-gradient(45deg, #00b7c3, #e05573);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 221, 235, 0.4);
+        }
+
+        button:disabled {
+            background: rgba(255, 255, 255, 0.2);
+            cursor: not-allowed;
+        }
+
+        /* Image preview */
+        .preview-section img,
+        .processed-image-section img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .preview-section img:hover,
+        .processed-image-section img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Product List */
         #product-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
         }
 
         .product-card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .product-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 221, 235, 0.3);
         }
 
         .product-card.selected {
-            border: 2px solid #007bff;
-            box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
-            transform: scale(1.05);
+            border: 2px solid #00ddeb;
+            box-shadow: 0 0 20px rgba(0, 221, 235, 0.5);
+            transform: translateY(-5px);
         }
 
         .product-card img {
             width: 100%;
-            height: 220px;
+            height: 240px;
             object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .product-card .product-name {
-            padding: 0.75rem;
+            padding: 1rem;
             text-align: center;
-            font-weight: bold;
-            font-size: 2rem;
-            color: #333;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: #e0e0e0;
+            background: rgba(0, 0, 0, 0.2);
         }
 
+        /* Download Button */
         #download-btn {
             display: inline-block;
-            margin-top: 1rem;
-            text-decoration: none;
-            padding: 0.6rem 1.2rem;
-            background-color: #28a745;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(45deg, #28a745, #00ddeb);
             color: white;
-            border-radius: 6px;
-            transition: background-color 0.3s ease;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         #download-btn:hover {
-            background-color: #1e7e34;
+            background: linear-gradient(45deg, #1e7e34, #00b7c3);
+            transform: translateY(-2px);
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            header.header h1 { font-size: 2.75rem; }
+            header.header p { font-size: 2rem; }
+            .product-card img { height: 180px; }
+            .product-card .product-name { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -152,30 +213,29 @@
         <div class="container">
             <header class="header">
                 <h1>Thử đồ</h1>
-                <p>Thử áo dài ảo. Hãy upload ảnh của bạn ngay!</p>
+                <p>Khám phá phong cách ảo với công nghệ tiên tiến!</p>
             </header>
 
             <!-- Try On Product Section -->
             <section id="try-on-section" class="section">
-                <h2>Try On Product</h2>
-                <label for="selfie-image">Upload Ảnh của bạn</label>
+                <h2>Thử Trang phục</h2>
+                <label for="selfie-image">Tải lên ảnh của bạn</label>
                 <input type="file" id="selfie-image" accept="image/*"/>
                 <div class="preview-section">
                     <p>Ảnh bạn đã chọn:</p>
                     <img id="selfie-preview" class="image-preview" src="" alt="Selfie Preview" />
                 </div>
 
-
-                <button id="process-btn">Process Image</button>
+                <button id="process-btn">Xử lý ảnh</button>
                 <div id="processed-image-section" class="processed-image-section">
                     <p>Ảnh sau khi thử:</p>
                     <img id="processed-image" src="" alt="Processed Image"/>
-                    <a id="download-btn" href="#" download>Download</a>
+                    <a id="download-btn" href="#" download>Tải xuống</a>
                 </div>
             </section>
 
             <section id="product-list-section" class="section">
-                <h2>Các sản phẩm hiện có</h2>
+                <h2>Sản phẩm hiện có</h2>
                 <div id="product-list"></div>
             </section>
         </div>
@@ -206,18 +266,17 @@
                 products.forEach(product => {
                     const productCard = document.createElement('div');
                     productCard.classList.add('product-card');
-                    productCard.setAttribute('data-product-id', product.id); // Thêm data-product-id
+                    productCard.setAttribute('data-product-id', product.id);
 
                     productCard.innerHTML = `
-            <img src="${product.avatar}" alt="${product.product_Name}" />
-            <div class="product-name">${product.product_Name}</div>
-        `;
+                        <img src="${product.avatar}" alt="${product.product_Name}" />
+                        <div class="product-name">${product.product_Name}</div>
+                    `;
 
                     productCard.addEventListener('click', () => handleProductSelect(product));
                     productListSection.appendChild(productCard);
                 });
             };
-
 
             let selectedProduct = null;
             const handleProductSelect = (product) => {
@@ -235,7 +294,6 @@
                 tryOnSection.style.display = 'block';
             };
 
-
             selfieImageInput.addEventListener("change", (e) => {
                 const file = e.target.files[0];
                 if (file) {
@@ -249,7 +307,6 @@
                     processedImageSection.style.display = 'none';
                 }
             });
-
 
             processButton.addEventListener("click", async () => {
                 if (!selfieImageInput.files[0] || !selectedProduct) {

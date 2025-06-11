@@ -128,7 +128,7 @@ dũng ngu, [6/10/2025 8:13 AM]
                                 </li>
 
                                 <li th:if="${#authorization.expression('isAuthenticated()')}" class="item-nav nav-cart">
-                                    <a href="/cart">
+                                    <a th:href="@{/client/cart}">
 
                                         <span class="cart-icon-mb">
                                                     <svg width="19" height="20" viewBox="0 0 19 20" fill="none"
@@ -151,9 +151,17 @@ dũng ngu, [6/10/2025 8:13 AM]
                                         </svg>
                                     </a>
                                 </li>
+                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+                                <li th:if="${#authorization.expression('isAuthenticated()')}" class="item-nav item-account">
+                                    <a th:href="@{/client/order/myhistory}">
+                                        <i class="fas fa-shopping-bag" style="font-size: 18px; color: #66783e; margin-right: 5px;"></i>
+                                    </a>
+                                </li>
+
                                 <li th:if="${#authorization.expression('isAuthenticated()')}"
                                     class="item-nav item-account">
-                                    <a th:href="@{/user/profile}">
+                                    <a th:href="@{/client/profile}">
                                         <svg width="22" height="21" viewBox="0 0 22 21" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -161,9 +169,7 @@ dũng ngu, [6/10/2025 8:13 AM]
                                                   fill="#66783e"></path>
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                   d="M0.859157 20.9996C0.859202 20.9994 0.859254 20.9991 0.429561 20.8972C-0.000131505 20.7952 -6.79857e-05 20.7949 1.77457e-06 20.7946L0.000172552 20.7938L0.000627901 20.7917L0.00200095 20.7855L0.00665644 20.7651C0.0106313 20.748 0.0163807 20.724 0.0240861 20.6937C0.0394944 20.6329 0.0627409 20.5464 0.0952824 20.4378C0.160337 20.2207 0.262719 19.9148 0.414187 19.5496C0.716819 18.82 1.21751 17.8489 2.01193 16.8775C3.61168 14.9212 6.37431 13 11 13C15.6257 13 18.3883 14.9212 19.9881 16.8775C20.7825 17.8489 21.2832 18.82 21.5858 19.5496C21.7373 19.9148 21.8397 20.2207 21.9047 20.4378C21.9373 20.5464 21.9605 20.6329 21.9759 20.6937C21.9836 20.724 21.9894 20.748 21.9933 20.7651L21.998 20.7855L21.9994 20.7917L21.9998 20.7938L22 20.7946C22.0001 20.7949 22.0001 20.7952 21.5704 20.8972C21.1407 20.9991 21.1408 20.9994 21.1408 20.9996L21.1405 20.9981L21.1379 20.9866C21.1353 20.9756 21.1311 20.9578 21.125 20.9337C21.1128 20.8856 21.0932 20.8124 21.0648 20.7178C21.008 20.5284 20.9164 20.2537 20.7788 19.922C20.5034 19.258 20.0461 18.3709 19.321 17.4843C17.8818 15.7242 15.3592 13.9291 11 13.9291C6.64081 13.9291 4.11823 15.7242 2.67897 17.4843C1.9539 18.3709 1.49664 19.258 1.2212 19.922C1.08363 20.2537 0.99195 20.5284 0.935197 20.7178C0.906834 20.8124 0.887241 20.8856 0.875037 20.9337C0.868935 20.9578 0.864685 20.9756 0.862111 20.9866L0.859488 20.9981L0.859157 20.9996ZM21.1409 20.9999C21.1409 21 21.1409 21 21.1409 20.9999L21.1409 20.9999Z"
-
-                                                  dũng ngu, [6/10/2025 8:13 AM]
-                                            fill="#66783e"></path>
+                                                  fill="#66783e"></path>
                                         </svg>
                                         <span th:text="${#authentication.principal.username}"></span>
                                     </a>
